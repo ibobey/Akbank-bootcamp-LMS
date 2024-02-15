@@ -7,3 +7,7 @@
 :root {
   --fcolor: #55595c;
 }
+
+a {
+  text-decoration: none;
+}

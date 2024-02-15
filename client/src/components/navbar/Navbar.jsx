@@ -1,5 +1,5 @@
 import "./Navbar.css";
-
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav>
@@ -11,7 +11,9 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navbar-center">
-        <i className="fa-solid fa-house"></i>
+        <Link to="/">
+          <i className="fa-solid fa-house"></i>
+        </Link>
       </div>
       <div className="navbar-right">
         <i className="fa-solid fa-user"></i>
