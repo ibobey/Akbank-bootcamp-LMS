@@ -18,6 +18,23 @@ export default function AddBook() {
     toast("Book inserted");
   };
 
+  const handleClear = async () => {
+    setFormData({
+      bookName: "",
+      author: "",
+      relaseDate: "",
+      numberOfPage: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <Header />
@@ -28,21 +45,36 @@ export default function AddBook() {
             <input
               type="text"
               name="bookName"
+              value={formData.bookName}
               placeholder="book name"
+              onChange={handleChange}
               required
             />
-            <input type="text" name="author" placeholder="author" required />
-            <input type="date " name="relaseDate" placeholder="relase date" />
+            <input
+              type="text"
+              name="author"
+              value={formData.author}
+              placeholder="author"
+              onChange={handleChange}
+              required
+            />
+
             <input
               type="text"
               name="numberOfPage"
+              value={formData.numberOfPage}
               placeholder="number of page"
+              onChange={handleChange}
             />
-
-            <button type="submit">
-              Add
-            </button>
-            <i className="fa-solid fa-trash"></i>
+            <input
+              type="date"
+              name="relaseDate"
+              value={formData.relaseDate}
+              placeholder="relase date"
+              onChange={handleChange}
+            />
+            <button type="submit">Add</button>
+            <i className="fa-solid fa-trash" onClick={handleClear}></i>
           </form>
         </div>
       </div>
