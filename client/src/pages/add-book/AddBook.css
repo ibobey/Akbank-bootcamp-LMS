@@ -1,0 +1,48 @@
+.page-add-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Josefin Slab", serif;
+  height: 80vh;
+}
+
+.page-add-book-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem 2rem;
+}
+
+.page-add-book-container label {
+  color: var(--fcolor);
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.page-add-book-container input {
+  padding: 0.5rem 3rem;
+  border: none;
+  border-bottom: var(--fcolor) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+}
+.page-add-book-container button {
+  padding: 0.5rem 3rem;
+}
+.page-add-book-container button {
+  padding: 0.5rem 3rem;
+  background-color: #111;
+  color: #fff;
+}
+
+.page-add-book-container i {
+  color: firebrick;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
