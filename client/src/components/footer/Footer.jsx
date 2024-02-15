@@ -1,5 +1,13 @@
 import "./Footer.css";
 
 export default function Footer() {
-  return <div>Footer</div>;
+  return (
+    <footer>
+      <div className="footer-left">
+        <i className="fa-regular fa-copyright"></i>
+      </div>
+      <div className="footer-center">Akbank Bootcamp - Library Management System</div>
+      <div className="footer-right">R</div>
+    </footer>
+  );
 }
