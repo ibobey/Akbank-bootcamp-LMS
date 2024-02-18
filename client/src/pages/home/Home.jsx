@@ -4,7 +4,7 @@ import QuickSelect from "./home-components/QuickSelect";
 
 export default function Home() {
   return (
-    <>
+    <div className="page-home">
       <Header />
       <div className="page-home-container">
         <QuickSelect
@@ -23,6 +23,6 @@ export default function Home() {
           routeTo="/remove-book"
         />
       </div>
-    </>
+    </div>
   );
 }

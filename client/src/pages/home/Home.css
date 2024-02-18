@@ -1,3 +1,7 @@
+.page-home {
+    margin-top: 4rem;
+}
+
 .page-home-container {
     display: flex;
     flex-direction: row;
@@ -5,5 +9,5 @@
     align-items: center;
     text-align: center;
     gap: 6rem;
-    height: 100vh;
+    height: 75vh;
 }

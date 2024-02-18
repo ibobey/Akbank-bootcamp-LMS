@@ -1,14 +1,39 @@
 import "./ListBook.css";
 import Header from "../../components/header/Header";
 
+import { useState, useEffect } from "react";
+
 export default function ListBook() {
-  const data = [
-    { id: 1, book_name: "A", author: "X", page_number: 100 },
-    { id: 2, book_name: "B", author: "X1", page_number: 200 },
-    { id: 3, book_name: "C", author: "X2", page_number: 300 },
-    { id: 4, book_name: "D", author: "X3", page_number: 400 },
-    { id: 5, book_name: "E", author: "X4", page_number: 500 },
-  ];
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:10000/api/books');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <>
@@ -19,6 +44,7 @@ export default function ListBook() {
             <table>
               <thead>
                 <tr>
+                  <th>id</th>
                   <th>Book</th>
                   <th>Author</th>
                   <th>Page Number</th>
@@ -32,6 +58,7 @@ export default function ListBook() {
                     <td>{item.book_name}</td>
                     <td>{item.author}</td>
                     <td>{item.page_number}</td>
+                    <td>{item.release_date}</td>
                   </tr>
                 ))}
               </tbody>

@@ -13,9 +13,27 @@ export default function AddBook() {
     numberOfPage: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    toast("Book inserted");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:10000/api/books", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "book_name": formData.bookName,
+          "author": formData.author,
+          "page_number": parseInt(formData.numberOfPage),
+          "release_date": formData.relaseDate
+        }),
+      });
+      const responseData = await response.json();
+      toast("Book inserted");
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
   };
 
   const handleClear = async () => {
