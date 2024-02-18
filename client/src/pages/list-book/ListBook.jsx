@@ -4,6 +4,7 @@ import Header from "../../components/header/Header";
 import { useState, useEffect } from "react";
 
 export default function ListBook() {
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +14,8 @@ export default function ListBook() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:10000/api/books");
+        /* const response = await fetch("http://127.0.0.1:10000/api/books"); */
+        const response = await fetch(`${import.meta.env.VITE_ROOT_DIR}/api/books`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

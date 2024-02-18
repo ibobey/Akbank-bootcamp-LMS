@@ -5,7 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 
+
 export default function AddBook() {
+
   const [formData, setFormData] = useState({
     bookName: "",
     author: "",
@@ -17,7 +19,7 @@ export default function AddBook() {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:10000/api/books", {
+      const response = await fetch(`${import.meta.env.VITE_ROOT_DIR}/api/books`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -46,7 +46,8 @@ export default function RemoveBook() {
   };
 
   const deleteRequestforBook = async (id) => {
-    const url = `http://127.0.0.1:10000/api/books/${id}`;
+    /*const url = `http://127.0.0.1:10000/api/books/${id}`;*/
+    const url = `${import.meta.env.VITE_ROOT_DIR}/api/books/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {
