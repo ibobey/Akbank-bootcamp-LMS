@@ -4,6 +4,9 @@ import Header from "../../components/header/Header";
 
 import { useState, useEffect } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function RemoveBook() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -66,6 +69,7 @@ export default function RemoveBook() {
   
   const handleApplyChanges = async () => {
     removeRecs.forEach((id) => deleteRequestforBook(id));
+    toast("Books Removed !");
   };
 
 
@@ -130,6 +134,7 @@ export default function RemoveBook() {
             }}
           ></i>
         </div>
+        <ToastContainer position="bottom-left" autoClose={1000} theme="dark" />
       </div>
     </>
   );
