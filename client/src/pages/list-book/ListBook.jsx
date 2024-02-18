@@ -37,10 +37,10 @@ export default function ListBook() {
     return <div>Error: {error.message}</div>;
   }
 
-  const filterData = (veri) => {
+  const filterData = (key) => {
     return (
-      veri.book_name.toLowerCase().includes(searchKey.toLowerCase()) ||
-      veri.author.toLowerCase().includes(searchKey.toLowerCase())
+      key.book_name.toLowerCase().includes(searchKey.toLowerCase()) ||
+      key.author.toLowerCase().includes(searchKey.toLowerCase())
     );
   };
 
