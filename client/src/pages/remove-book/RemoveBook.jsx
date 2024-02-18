@@ -11,6 +11,8 @@ export default function RemoveBook() {
 
   const [removeRecs, setRemoveRecs] = useState([]);
 
+  const [searchKey, setSearchKey] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -65,11 +67,25 @@ export default function RemoveBook() {
     removeRecs.forEach((id) => deleteRequestforBook(id));
   };
 
+
+  const filterData = (key) => {
+    return (
+      key.book_name.toLowerCase().includes(searchKey.toLowerCase()) ||
+      key.author.toLowerCase().includes(searchKey.toLowerCase())
+    );
+  };
+
   return (
     <>
       <Header />
       <div className="page-remove-book">
         <div className="page-remove-book-container">
+        <input
+          type="text"
+          placeholder="search"
+          value={searchKey}
+          onChange={(e) => setSearchKey(e.target.value)}
+        />
           <div className="page-remove-book-book-table">
             <table>
               <thead>
@@ -83,7 +99,7 @@ export default function RemoveBook() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item) => (
+                {data.filter(filterData).map((item) => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.book_name}</td>
