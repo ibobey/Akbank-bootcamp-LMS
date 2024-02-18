@@ -9,17 +9,17 @@ export default function Home() {
       <div className="page-home-container">
         <QuickSelect
           info="ADD BOOK"
-          source="https://cryptonairz.com/wp-content/uploads/2021/06/im-image-section-121.png"
+          source="/icon_add.jpg"
           routeTo="/add-book"
         />
         <QuickSelect
           info="LIST BOOK"
-          source="https://cryptonairz.com/wp-content/uploads/2021/06/im-image-section-121.png"
+          source="/icon_search.jpg"
           routeTo="/list-book"
         />
         <QuickSelect
           info="REMOVE BOOK"
-          source="https://cryptonairz.com/wp-content/uploads/2021/06/im-image-section-121.png"
+          source="/icon_remove.jpg"
           routeTo="/remove-book"
         />
       </div>
