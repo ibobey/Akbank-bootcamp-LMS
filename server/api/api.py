@@ -10,6 +10,8 @@ from database import models
 from sqlalchemy.orm import Session
 from typing import Annotated
 
+from sqlalchemy import insert
+
 models.BASE.metadata.create_all(bind=database.ENGINE)
 
 app = FastAPI()
@@ -32,6 +34,24 @@ def get_db():
 
 
 DB_DEPENDENCY = Annotated[Session, Depends(get_db)]
+
+
+@app.on_event("startup")
+async def startup():
+    statements = [
+        insert(models.Book).values(book_name="test_book_1", author="test_author_1", release_date="01-01-2000",
+                                   page_number=32),
+        insert(models.Book).values(book_name="test_book_2", author="test_author_2", release_date="01-01-2000",
+                                   page_number=33),
+        insert(models.Book).values(book_name="test_book_3", author="test_author_3", release_date="01-01-2000",
+                                   page_number=34),
+    ]
+    from database import ENGINE
+
+    with ENGINE.connect() as connection:
+        for statement in statements:
+            connection.execute(statement=statement)
+        connection.commit()
 
 
 @app.get('/')
