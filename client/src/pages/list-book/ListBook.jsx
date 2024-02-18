@@ -8,7 +8,7 @@ export default function ListBook() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [searchKey, setSearchKey] = useState('');
+  const [searchKey, setSearchKey] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,21 +37,22 @@ export default function ListBook() {
     return <div>Error: {error.message}</div>;
   }
 
-  const filtreleVeriler = (veri) => {
-    return veri.book_name.toLowerCase().includes(searchKey.toLowerCase()) ||
-           veri.author.toLowerCase().includes(searchKey.toLowerCase());
-};
-
+  const filterData = (veri) => {
+    return (
+      veri.book_name.toLowerCase().includes(searchKey.toLowerCase()) ||
+      veri.author.toLowerCase().includes(searchKey.toLowerCase())
+    );
+  };
 
   return (
     <>
       <Header />
       <div className="page-list-book">
         <input
-         type="text"
-         placeholder="search"
-         value={searchKey}
-         onChange={(e) => setSearchKey(e.target.value)}
+          type="text"
+          placeholder="search"
+          value={searchKey}
+          onChange={(e) => setSearchKey(e.target.value)}
         />
         <div className="page-list-book-contianer">
           <div className="page-list-book-book-table">
@@ -66,7 +67,7 @@ export default function ListBook() {
                 </tr>
               </thead>
               <tbody>
-                {data.filter(filtreleVeriler).map((item) => (
+                {data.filter(filterData).map((item) => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.book_name}</td>
