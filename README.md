@@ -13,9 +13,9 @@
     - Api Documentation : localhost:10000/docs
 
 # ABOUT 
-  Frontend Application: 
+ * Frontend Application: 
     - React
-  Backend Application: 
+ * Backend Application: 
     - FastApi - Python
       * Api : FastApi
       * Orm: Sqlalchemy
