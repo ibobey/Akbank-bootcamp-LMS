@@ -13,7 +13,7 @@ export default function Home() {
           routeTo="/add-book"
         />
         <QuickSelect
-          info="LIST BOOK"
+          info="LIST BOOKS"
           source="/icon_search.jpg"
           routeTo="/list-book"
         />

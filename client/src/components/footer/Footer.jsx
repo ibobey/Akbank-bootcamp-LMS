@@ -7,7 +7,7 @@ export default function Footer() {
         <i className="fa-regular fa-copyright"></i>
       </div>
       <div className="footer-center">Akbank Bootcamp - Library Management System</div>
-      <div className="footer-right">R</div>
+      <div className="footer-right">Ibrahim Tunc</div>
     </footer>
   );
 }
