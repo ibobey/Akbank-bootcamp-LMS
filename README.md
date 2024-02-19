@@ -1,6 +1,6 @@
 # Akbank-bootcamp-LMS
-Akbank Bootcamp - Library Management System
-İbrahim Tunç
+  Akbank Bootcamp - Library Management System
+  İbrahim Tunç
 
 # SUMMARY
   This is a demo application that contains frontend and backend seperated apps.
